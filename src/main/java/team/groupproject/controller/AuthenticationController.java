@@ -41,11 +41,12 @@ public class AuthenticationController {
     @CrossOrigin
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody AuthenticationRequest authenticatonRequest) {
         Authentication authentication = null;
+        System.out.println(authenticatonRequest);
         try {
             //authenticate the user and put it in an authentication object
             authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticatonRequest.getUsername(), authenticatonRequest.getPassword()));
         } catch (BadCredentialsException e) {
-            throw new BadCredentialsException("Incorect Username or Password!");
+            throw new BadCredentialsException("Incorrect Username or Password!");
         }
         // put the authenticated object in the security context
         SecurityContextHolder.getContext().setAuthentication(authentication);

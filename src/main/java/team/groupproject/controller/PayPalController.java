@@ -59,7 +59,7 @@ public class PayPalController {
         try {
             Payment payment = service.executePayment(paymentId, payerId);
             if (payment.getState().equals("approved")) {
-                return new RedirectView("http://127.0.0.1:5500/success.html");
+                return new RedirectView("http://localhost:3000/paypalsuccess");
             }
         } catch (PayPalRESTException e) {
             System.out.println(e.getMessage());

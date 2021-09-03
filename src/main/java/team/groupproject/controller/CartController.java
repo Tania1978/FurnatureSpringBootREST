@@ -49,6 +49,7 @@ public class CartController {
     private CartDetailsRepo cartDetailsRepo;
 
     @PostMapping("/addProductToCart/{id}")
+    @CrossOrigin
     public ResponseEntity<?> addProductToCart(@PathVariable(name = "id") int id, Authentication authentication) {
 
         CartDetails cartDetails = null;
@@ -137,5 +138,7 @@ public class CartController {
         return new ResponseEntity<>(totalQuan, HttpStatus.OK);
 
     }
+    
+   
 
 }

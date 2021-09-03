@@ -49,4 +49,9 @@ public class CartDetailsServiceImpl implements CartDetailsService {
         return cartDetailsRepo.getTotalCartQuantity(id);
     }
 
+    @Override
+    public int removeCartDetails(Integer id) {
+        return cartDetailsRepo.removeCartDetails(id);
+    }
+
 }

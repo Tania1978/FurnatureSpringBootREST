@@ -20,4 +20,6 @@ public interface CartDetailsService {
     public void deleteProductFromCart(CartDetails cartDetails);
 
     public int getTotalCartQuantity(Integer id);
+    
+    public int  removeCartDetails(Integer id);
 }

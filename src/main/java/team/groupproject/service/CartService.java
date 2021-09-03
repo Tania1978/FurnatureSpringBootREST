@@ -14,4 +14,6 @@ public interface CartService {
     public void saveCart(Cart cart);
 
     void removeCart(Cart cart);
+    
+    public int deleteCart(Integer id);
 }

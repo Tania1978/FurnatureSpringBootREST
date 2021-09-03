@@ -25,4 +25,7 @@ public interface CartDetailsRepo extends JpaRepository<CartDetails, CartDetailsP
 
     @Query(value = " select sum(quantity) from cart_details where cart_id=?1", nativeQuery = true)
     public int getTotalCartQuantity(Integer id);
+    
+     @Query(value = " delete from cart_details where cart_id=?1", nativeQuery = true)
+    public int removeCartDetails(Integer id);
 }

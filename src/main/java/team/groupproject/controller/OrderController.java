@@ -26,6 +26,8 @@ import team.groupproject.repository.StatusRepo;
 import team.groupproject.security.UserService;
 import team.groupproject.service.OrderService;
 import team.groupproject.service.StatusService;
+import team.groupproject.service.CartService;
+import team.groupproject.service.CartDetailsService;
 
 @RestController
 @CrossOrigin
@@ -46,6 +48,12 @@ public class OrderController {
 
     @Autowired
     StatusService statusService;
+    
+     @Autowired
+    CartService cartService;
+     
+     @Autowired
+    CartDetailsService cartDetailsService;
 
     @PostMapping("/users/orders")
     public ResponseEntity<OrdersDto> createOrder(Authentication authentication) {
@@ -54,6 +62,9 @@ public class OrderController {
         Myuser user = userService.findByUsername(userDetails.getUsername());
 
         Cart cart = user.getCart();
+       // cartDetailsService.removeCartDetails(cart.getId());
+        //cartService.removeCart(cart);
+        
 
         OrdersDto ordersDto = OrderConverter.convertOrderToOrderDto(orderService.createOrder(cart));
 

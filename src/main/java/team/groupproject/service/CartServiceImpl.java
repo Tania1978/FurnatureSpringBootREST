@@ -38,4 +38,9 @@ public class CartServiceImpl implements CartService {
         cartRepo.delete(cart);
     }
 
+    @Override
+    public int deleteCart(Integer id) {
+        return cartRepo.deleteCart(id);
+    }
+
 }
